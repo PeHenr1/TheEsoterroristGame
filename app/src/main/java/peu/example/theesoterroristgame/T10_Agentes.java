@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 public class T10_Agentes extends AppCompatActivity {
 
-    Cursor cursorAgentes;
-    AdapterAgentes adapterAgentes;
-    SQLiteDatabase bd;
+    //Cursor cursorAgentes;
+    //AdapterAgentes adapterAgentes;
+    //SQLiteDatabase bd;
 
 
     //TEM QUE COLOCAR ALGO - ATRIBUT NO BDD 'LIBERADO' COMO TRUE E FALSE, SE FOR TRUE POD USAR AGENTE
@@ -117,10 +117,10 @@ public class T10_Agentes extends AppCompatActivity {
         btnFecha.setOnClickListener(ef);
 
         // criando cursor com os dados vindos do banco
-        cursorAgentes = bd.rawQuery( "SELECT _rowid_ _id, nome, historia, vida, esquiva, ataque, contraataque, arma, status FROM agentes", null );
+        //cursorAgentes = bd.rawQuery( "SELECT _rowid_ _id, nome, historia, vida, esquiva, ataque, contraataque, arma, status FROM agentes", null );
 
         // criando o objeto adapter, passando o cursor
-        adapterAgentes = new AdapterAgentes(this, cursorAgentes );
+        //adapterAgentes = new AdapterAgentes(this, cursorAgentes );
 
 
 
