@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#404040"
+    tools:context=".T3_Historia">
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="297dp"
+        android:layout_height="526dp"
+        android:background="#AFAFAF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtHistoria"
+        android:layout_width="280dp"
+        android:layout_height="496dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/acme"
+        android:text="The Esoterrorist é uma organização global de renegados de várias tradições ocultas, com o objetivo de aumentar seus próprios poderes. Para tal, utilizam as Criaturas do Horror Incessante para amedrontar a sociedade e enfraquecer a membrana. \n\n Essa membrana divide duas dimensões, a “normal”, em que vivemos, e a “paranormal”, onde se encontram criaturas obsoletas e aterrorizantes e lugar em que tudo de mal pode acontecer. "
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/view5"
+        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintTop_toTopOf="@+id/view5" />
+
+    <Button
+        android:id="@+id/btnSeguinte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#E5E86E"
+        android:text="Seguinte"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintEnd_toEndOf="@+id/view5" />
+
+</android.support.constraint.ConstraintLayout>

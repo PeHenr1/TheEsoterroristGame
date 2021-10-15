@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6A6A6"
+    tools:context=".T8_Tratamento">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="495dp"
+        android:layout_height="358dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:srcCompat="@drawable/fundohosp2" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:background="#5A4535"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnIconConfig3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/icon_config"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="50dp"
+        android:text="1000"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toStartOf="@+id/btnIconConfig3"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:srcCompat="@drawable/icon_moeda" />
+
+    <ImageView
+        android:id="@+id/imgVazio"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view17"
+        app:srcCompat="@drawable/iconvazio" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/medico" />
+
+    <View
+        android:id="@+id/view17"
+        android:layout_width="189dp"
+        android:layout_height="103dp"
+        android:layout_marginBottom="120dp"
+        android:background="#C4C4C4"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/imageView10" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/acme"
+        android:text="\n     Vejamos… \n     O que posso fazer por você?"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view17"
+        app:layout_constraintEnd_toEndOf="@+id/view17"
+        app:layout_constraintStart_toStartOf="@+id/view17"
+        app:layout_constraintTop_toTopOf="@+id/view17" />
+
+    <TextView
+        android:id="@+id/lblNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/acme"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imgVazio"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <TextView
+        android:id="@+id/lblVida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/acme"
+        android:text="XX / XX"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toBottomOf="@+id/lblNome" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imgVazio"
+        app:layout_constraintTop_toBottomOf="@+id/lblNome"
+        app:srcCompat="@drawable/icon_coracao" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/intenso"
+        app:layout_constraintBottom_toBottomOf="@+id/btnIntenso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnIntenso"
+        app:layout_constraintTop_toTopOf="@+id/btnIntenso" />
+
+    <Button
+        android:id="@+id/btnIntenso"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/mediano"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMediano"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnMediano"
+        app:layout_constraintTop_toTopOf="@+id/btnMediano" />
+
+    <Button
+        android:id="@+id/btnMediano"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/leve"
+        app:layout_constraintEnd_toStartOf="@+id/btnIntenso"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgVazio" />
+
+</android.support.constraint.ConstraintLayout>

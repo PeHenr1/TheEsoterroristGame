@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#404040"
+    tools:context=".T7_Enfermaria">
+    dependencies {
+    implementation 'com.android.support:support-dynamic-animation:28.0.0'
+    }
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="502dp"
+        android:layout_height="453dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:srcCompat="@drawable/fundohosp" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:background="#5A4535"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view18"
+        android:layout_width="414dp"
+        android:layout_height="287dp"
+        android:background="#A6A6A6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnIconConfig2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/icon_config"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:srcCompat="@drawable/icon_moeda" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="50dp"
+        android:text="1000"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toStartOf="@+id/btnIconConfig2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <Button
+        android:id="@+id/btnAmy"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/agente_amycarter"
+        app:layout_constraintEnd_toStartOf="@+id/btnCollin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view18" />
+
+    <Button
+        android:id="@+id/btnJenna"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/agente_jennawashington"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCollin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCollin"
+        app:layout_constraintTop_toTopOf="@+id/btnCollin" />
+
+    <Button
+        android:id="@+id/btnCollin"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/agente_collinauburg"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAmy"
+        app:layout_constraintEnd_toStartOf="@+id/btnJenna"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnAmy"
+        app:layout_constraintTop_toTopOf="@+id/btnAmy" />
+
+    <Button
+        android:id="@+id/btnViolet"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/agente_violetflaucus"
+        app:layout_constraintEnd_toStartOf="@+id/btnJonson"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblAmy" />
+
+    <Button
+        android:id="@+id/btnRose"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/agente_rosenaciroff"
+        app:layout_constraintBottom_toBottomOf="@+id/btnJonson"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnJonson"
+        app:layout_constraintTop_toTopOf="@+id/btnJonson"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnJonson"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/agente_jonsondonley"
+        app:layout_constraintBottom_toBottomOf="@+id/btnViolet"
+        app:layout_constraintEnd_toStartOf="@+id/btnRose"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnViolet"
+        app:layout_constraintTop_toTopOf="@+id/btnViolet"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/lblAmy"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:autoText="false"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="15 / 15 "
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnAmy"
+        app:layout_constraintStart_toStartOf="@+id/btnAmy"
+        app:layout_constraintTop_toBottomOf="@+id/btnAmy" />
+
+    <TextView
+        android:id="@+id/lblCollin"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="16 / 16"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnCollin"
+        app:layout_constraintStart_toStartOf="@+id/btnCollin"
+        app:layout_constraintTop_toBottomOf="@+id/btnCollin" />
+
+    <TextView
+        android:id="@+id/lblJenna"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="16 / 16"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnJenna"
+        app:layout_constraintStart_toStartOf="@+id/btnJenna"
+        app:layout_constraintTop_toBottomOf="@+id/btnJenna" />
+
+    <TextView
+        android:id="@+id/lblViolet"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="17 / 17 "
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnViolet"
+        app:layout_constraintStart_toStartOf="@+id/btnViolet"
+        app:layout_constraintTop_toBottomOf="@+id/btnViolet" />
+
+    <TextView
+        android:id="@+id/lblJonson"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="14 / 14"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnJonson"
+        app:layout_constraintStart_toStartOf="@+id/btnJonson"
+        app:layout_constraintTop_toBottomOf="@+id/btnJonson" />
+
+    <TextView
+        android:id="@+id/lblRose"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="17 / 17"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnRose"
+        app:layout_constraintStart_toStartOf="@+id/btnRose"
+        app:layout_constraintTop_toBottomOf="@+id/btnRose" />
+
+    <Button
+        android:id="@+id/btnMayko"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/agente_maykotucker"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/btnKimura"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view18" />
+
+    <Button
+        android:id="@+id/btnKimura"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="130dp"
+        android:background="@drawable/agente_kimuraotosuri"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMayko"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnMayko"
+        app:layout_constraintTop_toTopOf="@+id/btnMayko"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/lblMayko"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="15 / 15 "
+        android:textColor="#000000"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/btnMayko"
+        app:layout_constraintStart_toStartOf="@+id/btnMayko"
+        app:layout_constraintTop_toBottomOf="@+id/btnMayko" />
+
+    <TextView
+        android:id="@+id/lblKimura"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="18 / 18"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnKimura"
+        app:layout_constraintStart_toStartOf="@+id/btnKimura"
+        app:layout_constraintTop_toBottomOf="@+id/btnKimura"
+        tools:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btnVolta"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/icon_voltar"
+        app:layout_constraintEnd_toStartOf="@+id/btnVai"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblJonson" />
+
+    <Button
+        android:id="@+id/btnVai"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/icon_ir"
+        app:layout_constraintBottom_toBottomOf="@+id/btnVolta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnVolta"
+        app:layout_constraintTop_toTopOf="@+id/btnVolta" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/view18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/enfermeira" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="189dp"
+        android:layout_height="103dp"
+        android:layout_marginBottom="60dp"
+        android:background="#C4C4C4"
+        app:layout_constraintBottom_toTopOf="@+id/view18"
+        app:layout_constraintStart_toEndOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/acme"
+        android:gravity="center|start"
+        android:text="     Olá! Como foi a missão?\n     Espero que tudo bem.\n     Fique tranquile, o doutor já vai\n     tratar você."
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+</android.support.constraint.ConstraintLayout>

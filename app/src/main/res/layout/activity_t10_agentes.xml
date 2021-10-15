@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundob"
+    tools:context=".T10_Agentes">
+
+    <View
+        android:id="@+id/view22"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:background="#5A4535"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view23"
+        android:layout_width="339dp"
+        android:layout_height="489dp"
+        android:layout_marginTop="15dp"
+        android:background="#A6A6A6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view22"
+        app:layout_constraintVertical_bias="0.19999999" />
+
+    <Button
+        android:id="@+id/btnIconConfig5"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/icon_config"
+        app:layout_constraintBottom_toBottomOf="@+id/view22"
+        app:layout_constraintEnd_toEndOf="@+id/view22"
+        app:layout_constraintTop_toTopOf="@+id/view22"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="50dp"
+        android:text="1000"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/view22"
+        app:layout_constraintEnd_toStartOf="@+id/btnIconConfig5"
+        app:layout_constraintTop_toTopOf="@+id/view22" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view22"
+        app:layout_constraintEnd_toStartOf="@+id/textView24"
+        app:layout_constraintTop_toTopOf="@+id/view22"
+        app:srcCompat="@drawable/icon_moeda" />
+
+    <TextView
+        android:id="@+id/lblAmyA"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="15 / 15 "
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnAmyA"
+        app:layout_constraintStart_toStartOf="@+id/btnAmyA"
+        app:layout_constraintTop_toBottomOf="@+id/btnAmyA" />
+
+    <TextView
+        android:id="@+id/lblCollinA"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="16 / 16"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnCollinA"
+        app:layout_constraintStart_toStartOf="@+id/btnCollinA"
+        app:layout_constraintTop_toBottomOf="@+id/btnCollinA" />
+
+    <TextView
+        android:id="@+id/lblJennaA"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="16 / 16"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnJennaA"
+        app:layout_constraintStart_toStartOf="@+id/btnJennaA"
+        app:layout_constraintTop_toBottomOf="@+id/btnJennaA" />
+
+    <TextView
+        android:id="@+id/lblKimuraA"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="18 / 18 "
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnKimuraA"
+        app:layout_constraintStart_toStartOf="@+id/btnKimuraA"
+        app:layout_constraintTop_toBottomOf="@+id/btnKimuraA" />
+
+    <TextView
+        android:id="@+id/lblMaykoA"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="15 / 15 "
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnMaykoA"
+        app:layout_constraintStart_toStartOf="@+id/btnMaykoA"
+        app:layout_constraintTop_toBottomOf="@+id/btnMaykoA" />
+
+    <TextView
+        android:id="@+id/lblRoseA"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="17 / 17"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnRoseA"
+        app:layout_constraintStart_toStartOf="@+id/btnRoseA"
+        app:layout_constraintTop_toBottomOf="@+id/btnRoseA" />
+
+    <TextView
+        android:id="@+id/lblVioletA"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="17 / 17"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnVioletA"
+        app:layout_constraintStart_toStartOf="@+id/btnVioletA"
+        app:layout_constraintTop_toBottomOf="@+id/btnVioletA" />
+
+    <TextView
+        android:id="@+id/lblJonsonA"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="14 / 14"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnJonsonA"
+        app:layout_constraintStart_toStartOf="@+id/btnJonsonA"
+        app:layout_constraintTop_toBottomOf="@+id/btnJonsonA" />
+
+    <Button
+        android:id="@+id/btnKimuraA"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/agente_kimuraotosuri"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMaykoA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnMaykoA"
+        app:layout_constraintTop_toTopOf="@+id/btnMaykoA" />
+
+    <Button
+        android:id="@+id/btnMaykoA"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/agente_maykotucker"
+        app:layout_constraintEnd_toStartOf="@+id/btnKimuraA"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblVioletA" />
+
+    <Button
+        android:id="@+id/btnRoseA"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/agente_rosenaciroff"
+        app:layout_constraintBottom_toBottomOf="@+id/btnVioletA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnVioletA"
+        app:layout_constraintTop_toTopOf="@+id/btnVioletA" />
+
+    <Button
+        android:id="@+id/btnVioletA"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/agente_violetflaucus"
+        app:layout_constraintEnd_toStartOf="@+id/btnRoseA"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblJennaA" />
+
+    <Button
+        android:id="@+id/btnJonsonA"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/agente_jonsondonley"
+        app:layout_constraintBottom_toBottomOf="@+id/btnJennaA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnJennaA"
+        app:layout_constraintTop_toTopOf="@+id/btnJennaA" />
+
+    <Button
+        android:id="@+id/btnJennaA"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/agente_jennawashington"
+        app:layout_constraintEnd_toStartOf="@+id/btnJonsonA"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblAmyA" />
+
+    <Button
+        android:id="@+id/btnAmyA"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/agente_amycarter"
+        app:layout_constraintEnd_toStartOf="@+id/btnCollinA"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view23" />
+
+    <Button
+        android:id="@+id/btnCollinA"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/agente_collinauburg"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAmyA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnAmyA"
+        app:layout_constraintTop_toTopOf="@+id/btnAmyA" />
+
+    <ImageView
+        android:id="@+id/imgBranco"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/view23"
+        app:layout_constraintTop_toTopOf="@+id/view23"
+        app:srcCompat="@drawable/iconvazio" />
+
+    <TextView
+        android:id="@+id/lblNomeA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/acme"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/TextView1"
+        app:layout_constraintStart_toEndOf="@+id/imgBranco"
+        app:layout_constraintTop_toTopOf="@+id/view23"
+        app:layout_constraintVertical_bias="0.06"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/TextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/acme"
+        android:text="Vida: "
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/TextView2"
+        app:layout_constraintStart_toStartOf="@+id/lblNomeA"
+        app:layout_constraintTop_toBottomOf="@+id/lblNomeA" />
+
+    <TextView
+        android:id="@+id/lblVidaAtual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/acme"
+        android:text="Atual"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TextView1"
+        app:layout_constraintStart_toEndOf="@+id/TextView1" />
+
+    <TextView
+        android:id="@+id/TextView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/acme"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TextView1"
+        app:layout_constraintStart_toEndOf="@+id/lblVidaAtual" />
+
+    <TextView
+        android:id="@+id/lblVidaMaxima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/acme"
+        android:text="Máxima"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TextView1"
+        app:layout_constraintStart_toEndOf="@+id/TextView5" />
+
+    <TextView
+        android:id="@+id/TextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/acme"
+        android:text="Contra-Ataque: "
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/TextView2"
+        app:layout_constraintTop_toBottomOf="@+id/TextView2" />
+
+    <TextView
+        android:id="@+id/TextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/acme"
+        android:text="Ataque: "
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/TextView3"
+        app:layout_constraintStart_toStartOf="@+id/TextView1"
+        app:layout_constraintTop_toBottomOf="@+id/TextView1" />
+
+    <TextView
+        android:id="@+id/lblAtaqueA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/acme"
+        android:text="valor"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TextView2"
+        app:layout_constraintStart_toEndOf="@+id/TextView2" />
+
+    <TextView
+        android:id="@+id/lblContraAtA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/acme"
+        android:text="valor"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TextView3"
+        app:layout_constraintStart_toEndOf="@+id/TextView3" />
+
+    <TextView
+        android:id="@+id/lblArmaA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/acme"
+        android:text="arma"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TextView12"
+        app:layout_constraintStart_toEndOf="@+id/TextView12" />
+
+    <TextView
+        android:id="@+id/lblEsquivaA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/acme"
+        android:text="valor"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
+        app:layout_constraintStart_toEndOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/TextView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/acme"
+        android:text="Arma:"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/acme"
+        android:text="Esquiva: "
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/TextView3"
+        app:layout_constraintTop_toBottomOf="@+id/TextView3" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/acme"
+        android:text="Sobre o agente:"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/view23"
+        app:layout_constraintTop_toBottomOf="@+id/imgBranco" />
+
+    <TextView
+        android:id="@+id/lblSobreA"
+        android:layout_width="283dp"
+        android:layout_height="266dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/acme"
+        android:text="texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto "
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/view23"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <Button
+        android:id="@+id/btnFecha"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/icon_voltar"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/view23"
+        app:layout_constraintTop_toTopOf="@+id/view23" />
+
+</android.support.constraint.ConstraintLayout>
