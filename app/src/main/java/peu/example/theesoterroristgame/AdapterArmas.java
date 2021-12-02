@@ -6,18 +6,19 @@ import android.support.v4.widget.CursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class AdapterArmas extends CursorAdapter {
+
     public AdapterArmas(Context context, Cursor cursor) {
 
         super(context, cursor, 0);
     }
-
-    // O método newView apenas "infla" o xml do item da lista e retorna.
-    // Não há preenchimento de dados neste momento.
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
@@ -27,24 +28,41 @@ public class AdapterArmas extends CursorAdapter {
         return itemDaLista;
     }
 
-    // O método bindView pega os dados lidos do bd no cursor, e coloca no item da lista
-
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-        //ImageView armaImg = view.findViewById(R.id.armaImg);
+        ImageView armaImg = view.findViewById(R.id.armaImg);
         TextView lblArmaN = view.findViewById(R.id.lblArmaN);
         TextView lblArmaD = view.findViewById(R.id.lblArmaD);
-
-
-        // extrair as informações da posição atual do cursor
 
         String nome = cursor.getString( cursor.getColumnIndex("nome") );
         String dano = cursor.getString( cursor.getColumnIndex("dano") );
 
         lblArmaN.setText( nome );
         lblArmaD.setText( dano );
+
+        if(nome.equals("Rifle")){
+            armaImg.setImageResource(R.drawable.rifle);
+        }
+        if(nome.equals("Shotgun")){
+            armaImg.setImageResource(R.drawable.shotgun);
+        }
+        if(nome.equals("Machado")){
+            armaImg.setImageResource(R.drawable.machado);
+        }
+        if(nome.equals("Adaga")){
+            armaImg.setImageResource(R.drawable.adaga);
+        }
+        if(nome.equals("ArcoFlecha")){
+            armaImg.setImageResource(R.drawable.arcoflecha);
+        }
+        if(nome.equals("Glock")){
+            armaImg.setImageResource(R.drawable.glock);
+        }
     }
+}
+
+
 
     // AQUI É O CÓDIGO ANTIGO, SEM O BDD, QUANDO EU USAVA COM A CLASSE
     /*
@@ -106,7 +124,9 @@ public class AdapterArmas extends CursorAdapter {
         }
     }
 
-       */
+     */
 
 
-}
+
+
+

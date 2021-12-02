@@ -40,7 +40,7 @@
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/lblDinheiroT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -58,12 +58,12 @@
         android:layout_marginTop="7dp"
         android:layout_marginEnd="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/view4"
-        app:layout_constraintEnd_toStartOf="@+id/textView19"
+        app:layout_constraintEnd_toStartOf="@+id/lblDinheiroT"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
         app:srcCompat="@drawable/icon_moeda" />
 
     <ImageView
-        android:id="@+id/imgVazio"
+        android:id="@+id/lblVazio"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="90dp"
@@ -112,21 +112,43 @@
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imgVazio"
+        app:layout_constraintStart_toEndOf="@+id/lblVazio"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <TextView
-        android:id="@+id/lblVida"
+        android:id="@+id/lblVidaAtualT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/acme"
-        android:text="XX / XX"
+        android:text="XX"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
         app:layout_constraintTop_toBottomOf="@+id/lblNome" />
+
+    <TextView
+        android:id="@+id/lblVidaAtualT2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/acme"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblVidaAtualT"
+        app:layout_constraintStart_toEndOf="@+id/lblVidaAtualT" />
+
+    <TextView
+        android:id="@+id/lblVidaMaximaT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/acme"
+        android:text="XX"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblVidaAtualT"
+        app:layout_constraintStart_toEndOf="@+id/lblVidaAtualT2" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -134,28 +156,17 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@+id/imgVazio"
+        app:layout_constraintStart_toEndOf="@+id/lblVazio"
         app:layout_constraintTop_toBottomOf="@+id/lblNome"
         app:srcCompat="@drawable/icon_coracao" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@drawable/intenso"
-        app:layout_constraintBottom_toBottomOf="@+id/btnIntenso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnIntenso"
-        app:layout_constraintTop_toTopOf="@+id/btnIntenso" />
 
     <Button
         android:id="@+id/btnIntenso"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:background="@drawable/mediano"
+        android:background="@drawable/intenso"
         app:layout_constraintBottom_toBottomOf="@+id/btnMediano"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnMediano"
         app:layout_constraintTop_toTopOf="@+id/btnMediano" />
@@ -164,11 +175,22 @@
         android:id="@+id/btnMediano"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/leve"
+        android:background="@drawable/mediano"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLeve"
         app:layout_constraintEnd_toStartOf="@+id/btnIntenso"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnLeve"
+        app:layout_constraintTop_toTopOf="@+id/btnLeve" />
+
+    <Button
+        android:id="@+id/btnLeve"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/leve"
+        app:layout_constraintEnd_toStartOf="@+id/btnMediano"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgVazio" />
+        app:layout_constraintTop_toBottomOf="@+id/lblVazio" />
 
 </android.support.constraint.ConstraintLayout>

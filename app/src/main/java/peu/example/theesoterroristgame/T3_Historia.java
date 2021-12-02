@@ -51,8 +51,8 @@ public class T3_Historia extends AppCompatActivity {
                     break;
 
                 default:
-                    //Intent m = new Intent( getApplicationContext(), T4_Tutorial.class);
-                    Intent m = new Intent( getApplicationContext(), T5_FinalizaTutorial.class);
+                    Intent m = new Intent( getApplicationContext(), T4_Tutorial.class);
+                    //Intent m = new Intent( getApplicationContext(), T5_FinalizaTutorial.class);
                     startActivity(m);
                     break;
             }

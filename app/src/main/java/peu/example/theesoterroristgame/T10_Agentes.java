@@ -1,21 +1,28 @@
 package peu.example.theesoterroristgame;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.AbstractCursor;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class T10_Agentes extends AppCompatActivity {
 
-    //Cursor cursorAgentes;
-    //AdapterAgentes adapterAgentes;
-    //SQLiteDatabase bd;
+    Cursor cursor;
+    AdapterArmas adapter;
+    SQLiteDatabase bd;
+    int idglob = 0;
+    String nglob;
 
+    private TextView lblDinheiroAg;
 
     //TEM QUE COLOCAR ALGO - ATRIBUT NO BDD 'LIBERADO' COMO TRUE E FALSE, SE FOR TRUE POD USAR AGENTE
     //SE FOR FALSE MOSTRA O CADEADO (QUE JA VOU DEIXAR NELES, MAS QUE FUTURAMENTE TERA QUE VERIFICAR NO BDD)
@@ -39,6 +46,8 @@ public class T10_Agentes extends AppCompatActivity {
     private TextView lblKimuraA;
 
     private Button btnFecha;
+    private Button btnDesbloquear;
+    private Button btnUpar;
 
     private TextView lblNomeA;
     private TextView lblVidaAtual;
@@ -64,6 +73,8 @@ public class T10_Agentes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_t10_agentes);
 
+        lblDinheiroAg = findViewById(R.id.lblDinheiroAg);
+
         btnAmyA = findViewById(R.id.btnAmyA);
         lblAmyA = findViewById(R.id.lblAmyA);
         btnCollinA =  findViewById(R.id.btnCollinA);
@@ -82,6 +93,8 @@ public class T10_Agentes extends AppCompatActivity {
         lblKimuraA = findViewById(R.id.lblKimuraA);
 
         btnFecha = findViewById(R.id.btnFecha);
+        btnDesbloquear = findViewById(R.id.btnDesbloquear);
+        btnUpar = findViewById(R.id.btnUpar);
 
         lblNomeA = findViewById(R.id.lblNomeA);
         lblVidaAtual = findViewById(R.id.lblVidaAtual);
@@ -113,8 +126,10 @@ public class T10_Agentes extends AppCompatActivity {
         btnMaykoA.setOnClickListener(ea);
         btnKimuraA.setOnClickListener(ea);
 
-        EscutadorFecha ef = new EscutadorFecha();
+        EscutadorBotoes ef = new EscutadorBotoes();
         btnFecha.setOnClickListener(ef);
+        btnUpar.setOnClickListener(ef);
+        btnDesbloquear.setOnClickListener(ef);
 
         // criando cursor com os dados vindos do banco
         //cursorAgentes = bd.rawQuery( "SELECT _rowid_ _id, nome, historia, vida, esquiva, ataque, contraataque, arma, status FROM agentes", null );
@@ -122,7 +137,19 @@ public class T10_Agentes extends AppCompatActivity {
         // criando o objeto adapter, passando o cursor
         //adapterAgentes = new AdapterAgentes(this, cursorAgentes );
 
+        //RECUPERA VALOR DINHEIRO
+        bd = openOrCreateDatabase("theesoterroristbd", MODE_PRIVATE, null);
+        String cmd;
+        int dindin;
+        cmd = "SELECT dinheiro FROM usuario";
 
+        Cursor dados = bd.rawQuery( cmd, null);
+        while( dados.moveToNext()){
+            dindin = dados.getInt( dados.getColumnIndex("dinheiro") );
+
+            String money = String.valueOf(dindin);
+            lblDinheiroAg.setText( money );
+        }
 
 
     }
@@ -170,49 +197,358 @@ public class T10_Agentes extends AppCompatActivity {
             imgBranco.setVisibility(View.VISIBLE);
             btnFecha.setVisibility(View.VISIBLE);
 
+
+            String  nome, historia, arma, msg;
+            int vidaat, vidamax, esquiva, ataque, contraataque, status;
+            bd = openOrCreateDatabase("theesoterroristbd", MODE_PRIVATE, null);
+            String cmd;
+            cmd = "SELECT id, nome, historia, vidaat, vidamax, esquiva, ataque, contraataque, arma, status FROM agentes";
+            cursor = bd.rawQuery( cmd, null );
+
             // criando cursor com os dados vindos do banco
             switch (b.getId()){
 
-
                 case R.id.btnAmyA:
-                    imgBranco.setImageResource(R.drawable.agente_amycarter);
-                    //String nome = "Amy Carter";
-                    //cursorAgentes = bd.rawQuery( "SELECT nome, historia, vida, esquiva, ataque, contraataque, arma FROM agentes WHERE nome = '"+nome+"' ", null );
+                    while ( cursor.moveToNext() ) {
+                        nome = cursor.getString( cursor.getColumnIndex( "nome" ) );
+                        if(nome.equals("Amy Carter")){
+                            idglob = cursor.getInt( cursor.getColumnIndex( "id" ));
+                            nglob = nome;
+                            historia = cursor.getString( cursor.getColumnIndex( "historia" ));
+                            vidaat = cursor.getInt( cursor.getColumnIndex( "vidaat" ) );
+                            vidamax = cursor.getInt( cursor.getColumnIndex( "vidamax" ) );
+                            esquiva = cursor.getInt( cursor.getColumnIndex( "esquiva" ) );
+                            ataque = cursor.getInt( cursor.getColumnIndex( "ataque" ) );
+                            contraataque = cursor.getInt( cursor.getColumnIndex( "contraataque" ) );
+                            arma = cursor.getString( cursor.getColumnIndex( "arma" ));
+                            status = cursor.getInt( cursor.getColumnIndex( "status" )  );
 
+                            String vidaAtual = String.valueOf(vidaat);
+                            String vidaMax = String.valueOf(vidamax);
+                            String vEsquiva = String.valueOf(esquiva);
+                            String vAtaque = String.valueOf(ataque);
+                            String vContraA = String.valueOf(contraataque);
 
-                    // ATENÇÃO PASSAR POR PARAMETRO ALGUMA COISA E CHAMAR O ADPATER
-                    // PRA  IGUAL O OUTRO LA E SEGUIR A VIDA
+                            imgBranco.setImageResource(R.drawable.agente_amycarter);
+                            lblNomeA.setText( nome );
+                            lblVidaAtual.setText( vidaAtual );
+                            lblVidaMaxima.setText( vidaMax );
+                            lblAtaqueA.setText( vAtaque );
+                            lblEsquivaA.setText( vEsquiva );
+                            lblContraAtA.setText( vContraA );
+                            lblArmaA.setText( arma );
+                            lblSobreA.setText( historia );
 
-
-                    //REC INFO DO BDD
-
-                    lblNomeA.setText( "Amy Carter" ); //dps pega do BDD agr é só pra aparecer msm
+                            if(status == 1){
+                                //Toast.makeText(getApplicationContext(), "liberado", Toast.LENGTH_SHORT).show();
+                                btnUpar.setVisibility(View.VISIBLE);
+                            }
+                            else{
+                                //Toast.makeText(getApplicationContext(), "block", Toast.LENGTH_SHORT).show();
+                                btnDesbloquear.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                     break;
                 case  R.id.btnCollinA:
-                    imgBranco.setImageResource(R.drawable.agente_collinauburg);
-                    lblNomeA.setText( "Collin Auburg" );
+                    while ( cursor.moveToNext() ) {
+                        nome = cursor.getString( cursor.getColumnIndex( "nome" ) );
+                        if(nome.equals("Collin Auburg")){
+                            nglob = nome;
+                            idglob = cursor.getInt( cursor.getColumnIndex( "id" ));
+                            historia = cursor.getString( cursor.getColumnIndex( "historia" ));
+                            vidaat = cursor.getInt( cursor.getColumnIndex( "vidaat" ) );
+                            vidamax = cursor.getInt( cursor.getColumnIndex( "vidamax" ) );
+                            esquiva = cursor.getInt( cursor.getColumnIndex( "esquiva" ) );
+                            ataque = cursor.getInt( cursor.getColumnIndex( "ataque" ) );
+                            contraataque = cursor.getInt( cursor.getColumnIndex( "contraataque" ) );
+                            arma = cursor.getString( cursor.getColumnIndex( "arma" ));
+                            status = cursor.getInt( cursor.getColumnIndex( "status" )  );
+
+                            String vidaAtual = String.valueOf(vidaat);
+                            String vidaMax = String.valueOf(vidamax);
+                            String vEsquiva = String.valueOf(esquiva);
+                            String vAtaque = String.valueOf(ataque);
+                            String vContraA = String.valueOf(contraataque);
+
+                            imgBranco.setImageResource(R.drawable.agente_collinauburg);
+                            lblNomeA.setText( nome );
+                            lblVidaAtual.setText( vidaAtual );
+                            lblVidaMaxima.setText( vidaMax );
+                            lblAtaqueA.setText( vAtaque );
+                            lblEsquivaA.setText( vEsquiva );
+                            lblContraAtA.setText( vContraA );
+                            lblArmaA.setText( arma );
+                            lblSobreA.setText( historia );
+
+                            if(status == 1){
+                                //Toast.makeText(getApplicationContext(), "liberado", Toast.LENGTH_SHORT).show();
+                                btnUpar.setVisibility(View.VISIBLE);
+                            }
+                            else{
+                                //Toast.makeText(getApplicationContext(), "block", Toast.LENGTH_SHORT).show();
+                                btnDesbloquear.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                     break;
                 case R.id.btnJennaA:
-                    imgBranco.setImageResource(R.drawable.agente_jennawashington);
-                    lblNomeA.setText( "Jenna Washington" );
+                    while ( cursor.moveToNext() ) {
+                        nome = cursor.getString( cursor.getColumnIndex( "nome" ) );
+
+                        if(nome.equals("Jenna Washington")){
+                            nglob = nome;
+                            idglob = cursor.getInt( cursor.getColumnIndex( "id" ));
+                            historia = cursor.getString( cursor.getColumnIndex( "historia" ));
+                            vidaat = cursor.getInt( cursor.getColumnIndex( "vidaat" ) );
+                            vidamax = cursor.getInt( cursor.getColumnIndex( "vidamax" ) );
+                            esquiva = cursor.getInt( cursor.getColumnIndex( "esquiva" ) );
+                            ataque = cursor.getInt( cursor.getColumnIndex( "ataque" ) );
+                            contraataque = cursor.getInt( cursor.getColumnIndex( "contraataque" ) );
+                            arma = cursor.getString( cursor.getColumnIndex( "arma" ));
+                            status = cursor.getInt( cursor.getColumnIndex( "status" )  );
+
+                            String vidaAtual = String.valueOf(vidaat);
+                            String vidaMax = String.valueOf(vidamax);
+                            String vEsquiva = String.valueOf(esquiva);
+                            String vAtaque = String.valueOf(ataque);
+                            String vContraA = String.valueOf(contraataque);
+
+                            imgBranco.setImageResource(R.drawable.agente_jennawashington);
+                            lblNomeA.setText( nome );
+                            lblVidaAtual.setText( vidaAtual );
+                            lblVidaMaxima.setText( vidaMax );
+                            lblAtaqueA.setText( vAtaque );
+                            lblEsquivaA.setText( vEsquiva );
+                            lblContraAtA.setText( vContraA );
+                            lblArmaA.setText( arma );
+                            lblSobreA.setText( historia );
+
+                            if(status == 1){
+                                //Toast.makeText(getApplicationContext(), "liberado", Toast.LENGTH_SHORT).show();
+                                btnUpar.setVisibility(View.VISIBLE);
+                            }
+                            else{
+                                //Toast.makeText(getApplicationContext(), "block", Toast.LENGTH_SHORT).show();
+                                btnDesbloquear.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                     break;
                 case  R.id.btnVioletA:
-                    imgBranco.setImageResource(R.drawable.agente_violetflaucus);
-                    lblNomeA.setText( "Violet Flaucus" );
+                    while ( cursor.moveToNext() ) {
+                        nome = cursor.getString(cursor.getColumnIndex("nome"));
+
+                        if (nome.equals("Violet Flaucus")) {
+                            nglob = nome;
+                            idglob = cursor.getInt( cursor.getColumnIndex( "id" ));
+                            historia = cursor.getString(cursor.getColumnIndex("historia"));
+                            vidaat = cursor.getInt(cursor.getColumnIndex("vidaat"));
+                            vidamax = cursor.getInt(cursor.getColumnIndex("vidamax"));
+                            esquiva = cursor.getInt(cursor.getColumnIndex("esquiva"));
+                            ataque = cursor.getInt(cursor.getColumnIndex("ataque"));
+                            contraataque = cursor.getInt(cursor.getColumnIndex("contraataque"));
+                            arma = cursor.getString(cursor.getColumnIndex("arma"));
+                            status = cursor.getInt( cursor.getColumnIndex( "status" )  );
+
+                            String vidaAtual = String.valueOf(vidaat);
+                            String vidaMax = String.valueOf(vidamax);
+                            String vEsquiva = String.valueOf(esquiva);
+                            String vAtaque = String.valueOf(ataque);
+                            String vContraA = String.valueOf(contraataque);
+
+                            imgBranco.setImageResource(R.drawable.agente_violetflaucus);
+                            lblNomeA.setText(nome);
+                            lblVidaAtual.setText(vidaAtual);
+                            lblVidaMaxima.setText(vidaMax);
+                            lblAtaqueA.setText(vAtaque);
+                            lblEsquivaA.setText(vEsquiva);
+                            lblContraAtA.setText(vContraA);
+                            lblArmaA.setText(arma);
+                            lblSobreA.setText(historia);
+
+                            if(status == 1){
+                                //Toast.makeText(getApplicationContext(), "liberado", Toast.LENGTH_SHORT).show();
+                                btnUpar.setVisibility(View.VISIBLE);
+                            }
+                            else{
+                                //Toast.makeText(getApplicationContext(), "block", Toast.LENGTH_SHORT).show();
+                                btnDesbloquear.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                     break;
                 case  R.id.btnJonsonA:
-                    imgBranco.setImageResource(R.drawable.agente_jonsondonley);
-                    lblNomeA.setText( "Jonson Donley" );
+                    while ( cursor.moveToNext() ) {
+                        nome = cursor.getString( cursor.getColumnIndex( "nome" ) );
+
+                        if(nome.equals("Jonson Donley")){
+                            nglob = nome;
+                            idglob = cursor.getInt( cursor.getColumnIndex( "id" ));
+                            historia = cursor.getString( cursor.getColumnIndex( "historia" ));
+                            vidaat = cursor.getInt( cursor.getColumnIndex( "vidaat" ) );
+                            vidamax = cursor.getInt( cursor.getColumnIndex( "vidamax" ) );
+                            esquiva = cursor.getInt( cursor.getColumnIndex( "esquiva" ) );
+                            ataque = cursor.getInt( cursor.getColumnIndex( "ataque" ) );
+                            contraataque = cursor.getInt( cursor.getColumnIndex( "contraataque" ) );
+                            arma = cursor.getString( cursor.getColumnIndex( "arma" ));
+                            status = cursor.getInt( cursor.getColumnIndex( "status" )  );
+
+                            String vidaAtual = String.valueOf(vidaat);
+                            String vidaMax = String.valueOf(vidamax);
+                            String vEsquiva = String.valueOf(esquiva);
+                            String vAtaque = String.valueOf(ataque);
+                            String vContraA = String.valueOf(contraataque);
+
+                            imgBranco.setImageResource(R.drawable.agente_jonsondonley);
+                            lblNomeA.setText( nome );
+                            lblVidaAtual.setText( vidaAtual );
+                            lblVidaMaxima.setText( vidaMax );
+                            lblAtaqueA.setText( vAtaque );
+                            lblEsquivaA.setText( vEsquiva );
+                            lblContraAtA.setText( vContraA );
+                            lblArmaA.setText( arma );
+                            lblSobreA.setText( historia );
+
+                            if(status == 1){
+                                //Toast.makeText(getApplicationContext(), "liberado", Toast.LENGTH_SHORT).show();
+                                btnUpar.setVisibility(View.VISIBLE);
+                            }
+                            else{
+                                //Toast.makeText(getApplicationContext(), "block", Toast.LENGTH_SHORT).show();
+                                btnDesbloquear.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                     break;
                 case  R.id.btnRoseA:
-                    imgBranco.setImageResource(R.drawable.agente_rosenaciroff);
-                    lblNomeA.setText( "Rose Naciroff" );
+                    while ( cursor.moveToNext() ) {
+                        nome = cursor.getString( cursor.getColumnIndex( "nome" ) );
+
+                        if(nome.equals("Rose Naciroff")){
+                            nglob = nome;
+                            idglob = cursor.getInt( cursor.getColumnIndex( "id" ));
+                            historia = cursor.getString( cursor.getColumnIndex( "historia" ));
+                            vidaat = cursor.getInt( cursor.getColumnIndex( "vidaat" ) );
+                            vidamax = cursor.getInt( cursor.getColumnIndex( "vidamax" ) );
+                            esquiva = cursor.getInt( cursor.getColumnIndex( "esquiva" ) );
+                            ataque = cursor.getInt( cursor.getColumnIndex( "ataque" ) );
+                            contraataque = cursor.getInt( cursor.getColumnIndex( "contraataque" ) );
+                            arma = cursor.getString( cursor.getColumnIndex( "arma" ));
+                            status = cursor.getInt( cursor.getColumnIndex( "status" )  );
+
+                            String vidaAtual = String.valueOf(vidaat);
+                            String vidaMax = String.valueOf(vidamax);
+                            String vEsquiva = String.valueOf(esquiva);
+                            String vAtaque = String.valueOf(ataque);
+                            String vContraA = String.valueOf(contraataque);
+
+                            imgBranco.setImageResource(R.drawable.agente_rosenaciroff);
+                            lblNomeA.setText( nome );
+                            lblVidaAtual.setText( vidaAtual );
+                            lblVidaMaxima.setText( vidaMax );
+                            lblAtaqueA.setText( vAtaque );
+                            lblEsquivaA.setText( vEsquiva );
+                            lblContraAtA.setText( vContraA );
+                            lblArmaA.setText( arma );
+                            lblSobreA.setText( historia );
+
+                            if(status == 1){
+                                //Toast.makeText(getApplicationContext(), "liberado", Toast.LENGTH_SHORT).show();
+                                btnUpar.setVisibility(View.VISIBLE);
+                            }
+                            else{
+                                //Toast.makeText(getApplicationContext(), "block", Toast.LENGTH_SHORT).show();
+                                btnDesbloquear.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                     break;
                 case  R.id.btnMaykoA:
-                    imgBranco.setImageResource(R.drawable.agente_maykotucker);
-                    lblNomeA.setText( "Mayko Tucker" );
+                    while ( cursor.moveToNext() ) {
+                        nome = cursor.getString( cursor.getColumnIndex( "nome" ) );
+
+                        if(nome.equals("Mayko Tucker")){
+                            nglob = nome;
+                            idglob = cursor.getInt( cursor.getColumnIndex( "id" ));
+                            historia = cursor.getString( cursor.getColumnIndex( "historia" ));
+                            vidaat = cursor.getInt( cursor.getColumnIndex( "vidaat" ) );
+                            vidamax = cursor.getInt( cursor.getColumnIndex( "vidamax" ) );
+                            esquiva = cursor.getInt( cursor.getColumnIndex( "esquiva" ) );
+                            ataque = cursor.getInt( cursor.getColumnIndex( "ataque" ) );
+                            contraataque = cursor.getInt( cursor.getColumnIndex( "contraataque" ) );
+                            arma = cursor.getString( cursor.getColumnIndex( "arma" ));
+                            status = cursor.getInt( cursor.getColumnIndex( "status" )  );
+
+                            String vidaAtual = String.valueOf(vidaat);
+                            String vidaMax = String.valueOf(vidamax);
+                            String vEsquiva = String.valueOf(esquiva);
+                            String vAtaque = String.valueOf(ataque);
+                            String vContraA = String.valueOf(contraataque);
+
+                            imgBranco.setImageResource(R.drawable.agente_maykotucker);
+                            lblNomeA.setText( nome );
+                            lblVidaAtual.setText( vidaAtual );
+                            lblVidaMaxima.setText( vidaMax );
+                            lblAtaqueA.setText( vAtaque );
+                            lblEsquivaA.setText( vEsquiva );
+                            lblContraAtA.setText( vContraA );
+                            lblArmaA.setText( arma );
+                            lblSobreA.setText( historia );
+
+                            if(status == 1){
+                                //Toast.makeText(getApplicationContext(), "liberado", Toast.LENGTH_SHORT).show();
+                                btnUpar.setVisibility(View.VISIBLE);
+                            }
+                            else{
+                                //Toast.makeText(getApplicationContext(), "block", Toast.LENGTH_SHORT).show();
+                                btnDesbloquear.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                     break;
                 case  R.id.btnKimuraA:
+                    while ( cursor.moveToNext() ) {
+                        nome = cursor.getString( cursor.getColumnIndex( "nome" ) );
+
+                        if(nome.equals("Kimura Otosuri")){
+                            nglob = nome;
+                            idglob = cursor.getInt( cursor.getColumnIndex( "id" ));
+                            historia = cursor.getString( cursor.getColumnIndex( "historia" ));
+                            vidaat = cursor.getInt( cursor.getColumnIndex( "vidaat" ) );
+                            vidamax = cursor.getInt( cursor.getColumnIndex( "vidamax" ) );
+                            esquiva = cursor.getInt( cursor.getColumnIndex( "esquiva" ) );
+                            ataque = cursor.getInt( cursor.getColumnIndex( "ataque" ) );
+                            contraataque = cursor.getInt( cursor.getColumnIndex( "contraataque" ) );
+                            arma = cursor.getString( cursor.getColumnIndex( "arma" ));
+                            status = cursor.getInt( cursor.getColumnIndex( "status" )  );
+
+                            String vidaAtual = String.valueOf(vidaat);
+                            String vidaMax = String.valueOf(vidamax);
+                            String vEsquiva = String.valueOf(esquiva);
+                            String vAtaque = String.valueOf(ataque);
+                            String vContraA = String.valueOf(contraataque);
+
+                            imgBranco.setImageResource(R.drawable.agente_kimuraotosuri);
+                            lblNomeA.setText( nome );
+                            lblVidaAtual.setText( vidaAtual );
+                            lblVidaMaxima.setText( vidaMax );
+                            lblAtaqueA.setText( vAtaque );
+                            lblEsquivaA.setText( vEsquiva );
+                            lblContraAtA.setText( vContraA );
+                            lblArmaA.setText( arma );
+                            lblSobreA.setText( historia );
+
+                            if(status == 1){
+                                //Toast.makeText(getApplicationContext(), "liberado", Toast.LENGTH_SHORT).show();
+                                btnUpar.setVisibility(View.VISIBLE);
+                            }
+                            else{
+                                //Toast.makeText(getApplicationContext(), "block", Toast.LENGTH_SHORT).show();
+                                btnDesbloquear.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
                     imgBranco.setImageResource(R.drawable.agente_kimuraotosuri);
                     lblNomeA.setText( "Kimura Otosuri" );
                     break;
@@ -220,47 +556,129 @@ public class T10_Agentes extends AppCompatActivity {
             }
         }
     }
-    private class EscutadorFecha implements View.OnClickListener {
+
+    private class EscutadorBotoes implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
+            Button b = (Button) view;
 
-            btnAmyA.setVisibility(View.VISIBLE);
-            lblAmyA.setVisibility(View.VISIBLE);
-            btnCollinA.setVisibility(View.VISIBLE);
-            lblCollinA.setVisibility(View.VISIBLE);
-            btnJennaA.setVisibility(View.VISIBLE);
-            lblJennaA.setVisibility(View.VISIBLE);
-            btnVioletA.setVisibility(View.VISIBLE);
-            lblVioletA.setVisibility(View.VISIBLE);
-            btnJonsonA.setVisibility(View.VISIBLE);
-            lblJonsonA.setVisibility(View.VISIBLE);
-            btnRoseA.setVisibility(View.VISIBLE);
-            lblRoseA.setVisibility(View.VISIBLE);
-            btnMaykoA.setVisibility(View.VISIBLE);
-            lblMaykoA.setVisibility(View.VISIBLE);
-            btnKimuraA.setVisibility(View.VISIBLE);
-            lblKimuraA.setVisibility(View.VISIBLE);
+            switch (b.getId()){
+                case R.id.btnFecha:
+                    btnAmyA.setVisibility(View.VISIBLE);
+                    lblAmyA.setVisibility(View.VISIBLE);
+                    btnCollinA.setVisibility(View.VISIBLE);
+                    lblCollinA.setVisibility(View.VISIBLE);
+                    btnJennaA.setVisibility(View.VISIBLE);
+                    lblJennaA.setVisibility(View.VISIBLE);
+                    btnVioletA.setVisibility(View.VISIBLE);
+                    lblVioletA.setVisibility(View.VISIBLE);
+                    btnJonsonA.setVisibility(View.VISIBLE);
+                    lblJonsonA.setVisibility(View.VISIBLE);
+                    btnRoseA.setVisibility(View.VISIBLE);
+                    lblRoseA.setVisibility(View.VISIBLE);
+                    btnMaykoA.setVisibility(View.VISIBLE);
+                    lblMaykoA.setVisibility(View.VISIBLE);
+                    btnKimuraA.setVisibility(View.VISIBLE);
+                    lblKimuraA.setVisibility(View.VISIBLE);
 
-            lblNomeA.setVisibility(View.INVISIBLE);
-            lblVidaAtual.setVisibility(View.INVISIBLE);
-            lblVidaMaxima.setVisibility(View.INVISIBLE);
-            lblAtaqueA.setVisibility(View.INVISIBLE);
-            lblContraAtA.setVisibility(View.INVISIBLE);
-            lblEsquivaA.setVisibility(View.INVISIBLE);
-            textView28.setVisibility(View.INVISIBLE);
-            lblSobreA.setVisibility(View.INVISIBLE);
-            TextView1.setVisibility(View.INVISIBLE);
-            TextView2.setVisibility(View.INVISIBLE);
-            TextView3.setVisibility(View.INVISIBLE);
-            TextView4.setVisibility(View.INVISIBLE);
-            TextView5.setVisibility(View.INVISIBLE);
-            lblArmaA.setVisibility(View.INVISIBLE);
-            TextView12.setVisibility(View.INVISIBLE);
-            TextView15.setVisibility(View.INVISIBLE);
+                    lblNomeA.setVisibility(View.INVISIBLE);
+                    lblVidaAtual.setVisibility(View.INVISIBLE);
+                    lblVidaMaxima.setVisibility(View.INVISIBLE);
+                    lblAtaqueA.setVisibility(View.INVISIBLE);
+                    lblContraAtA.setVisibility(View.INVISIBLE);
+                    lblEsquivaA.setVisibility(View.INVISIBLE);
+                    textView28.setVisibility(View.INVISIBLE);
+                    lblSobreA.setVisibility(View.INVISIBLE);
+                    TextView1.setVisibility(View.INVISIBLE);
+                    TextView2.setVisibility(View.INVISIBLE);
+                    TextView3.setVisibility(View.INVISIBLE);
+                    TextView4.setVisibility(View.INVISIBLE);
+                    TextView5.setVisibility(View.INVISIBLE);
+                    lblArmaA.setVisibility(View.INVISIBLE);
+                    TextView12.setVisibility(View.INVISIBLE);
+                    TextView15.setVisibility(View.INVISIBLE);
 
-            imgBranco.setVisibility(View.INVISIBLE);
-            btnFecha.setVisibility(View.INVISIBLE);
+                    imgBranco.setVisibility(View.INVISIBLE);
+                    btnFecha.setVisibility(View.INVISIBLE);
+                    btnDesbloquear.setVisibility(View.INVISIBLE);
+                    btnUpar.setVisibility(View.INVISIBLE);
+                    break;
+
+                case R.id.btnUpar:
+                    Toast.makeText(getApplicationContext(), "Abre upar", Toast.LENGTH_SHORT).show();
+                    break;
+                    // NESSE ABRE OUTRA PAGINA QUE RECUPERA OS DADOS DO PERSONAGEM SELECIONADO
+                    // ENVIA OS DADOS JUNTO QUANDO ABRIR PLMDD
+                    // MOSTRA LA COMO Q VAI FICAR AS COISAS DO AGENTE
+                    // VAI TER A CAIXA PERGUNTANDO SE QUER EU NAO, NAO: FECHA, SIM: SUBTRAI O DINHEIRO
+                    // ALTERA OS VALOR DOS ATRIBUTOS E DPS DA UPDATE
+
+                case R.id.btnDesbloquear:
+
+                    // NESSE VAI APARECER CAIXA DE TEXTO PERGUNTANDO SE USUARIO QUER MSM DESBLOQUEAR
+                    // SE NAO FECHA, SE SIM SUBTRAI 1000 DO DINHEIRO QUE TEM ((UPDATE NO BD NO MONEY E NO STTS
+                    AlertDialog.Builder dialogo = new AlertDialog.Builder( T10_Agentes.this);
+                    dialogo.setMessage("Custo: R$1000");
+                    dialogo.setPositiveButton( "Confirmar", new EscutadorS() );
+                    dialogo.setNegativeButton( "Voltar", new EscutadorN() );
+                    dialogo.setCancelable( false );
+                    dialogo.create();
+                    dialogo.show();
+
+            }
+        }
+    }
+
+    private class EscutadorN implements DialogInterface.OnClickListener {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            dialogInterface.cancel();
+        }
+    }
+
+    private class EscutadorS implements DialogInterface.OnClickListener {
+
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            bd = openOrCreateDatabase("theesoterroristbd", MODE_PRIVATE, null);
+            String cmd;
+
+            //RECUPERA VALOR DINHEIRO
+            int dindin;
+            int att = 0;
+            cmd = "SELECT dinheiro FROM usuario";
+
+
+            Cursor dados = bd.rawQuery( cmd, null);
+            while( dados.moveToNext()){
+                dindin = dados.getInt( dados.getColumnIndex("dinheiro") );
+
+                if(dindin >= 1000){
+                    dindin = dindin - 1000;
+
+                    // checagem - ta pegando certo
+                    //String din =  String.valueOf(dindin);
+                    //Toast.makeText(getApplicationContext(), din, Toast.LENGTH_SHORT).show();
+
+                    cmd = "UPDATE usuario SET dinheiro = " + dindin;
+                    bd.execSQL( cmd );
+
+                    att +=1;
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Dinheiro insuficiente.", Toast.LENGTH_SHORT).show();
+                    //break;
+                }
+            }
+
+            if(att!=0){
+                // ATT BD
+                //Toast.makeText(getApplicationContext(), "NOME: "+nglob, Toast.LENGTH_SHORT).show();
+                cmd = "UPDATE agentes SET status = " + 1 + " WHERE id = " + idglob;
+                bd.execSQL( cmd );
+                Toast.makeText(getApplicationContext(), "Personagem desbloqueado :)", Toast.LENGTH_SHORT).show();
+            }
 
         }
     }

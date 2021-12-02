@@ -1,6 +1,8 @@
 package peu.example.theesoterroristgame;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +11,9 @@ import android.widget.TextView;
 
 public class T7_Enfermaria extends AppCompatActivity {
 
+    SQLiteDatabase bd;
+
+    private Button btnVolta2;
     private Button btnVai;
     private Button btnVolta;
     private Button btnAmy;
@@ -28,14 +33,19 @@ public class T7_Enfermaria extends AppCompatActivity {
     private Button btnKimura;
     private TextView lblKimura;
 
+    private TextView lblDinheiroE;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_t7_enfermaria);
 
+        lblDinheiroE = findViewById(R.id.lblDinheiroE);
+
         btnVai = findViewById(R.id.btnVai);
         btnVolta = findViewById(R.id.btnVolta);
+        btnVolta2 = findViewById(R.id.btnVolta2);
 
         btnAmy = findViewById(R.id.btnAmy);
         lblAmy = findViewById(R.id.lblAmy);
@@ -67,6 +77,31 @@ public class T7_Enfermaria extends AppCompatActivity {
 
         btnVai.setOnClickListener( new MostrarMais() );
         btnVolta.setOnClickListener( new MostrarMenos() );
+
+        btnVolta2.setOnClickListener( new VoltaAtt() );
+
+        //RECUPERA VALOR DINHEIRO
+        bd = openOrCreateDatabase("theesoterroristbd", MODE_PRIVATE, null);
+        String cmd;
+        int dindin;
+        cmd = "SELECT dinheiro FROM usuario";
+
+        Cursor dados = bd.rawQuery( cmd, null);
+        while( dados.moveToNext()){
+            dindin = dados.getInt( dados.getColumnIndex("dinheiro") );
+
+            String money = String.valueOf(dindin);
+            lblDinheiroE.setText( money );
+        }
+    }
+
+    private class VoltaAtt implements  View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            Intent j = new Intent( getApplicationContext(), T6_Base.class );
+            startActivity(j);
+        }
     }
 
     private class MostrarMais implements  View.OnClickListener{

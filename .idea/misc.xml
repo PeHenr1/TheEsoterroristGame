@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t10_agentes.xml" value="0.67" />
+        <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t10_agentes.xml" value="0.33" />
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t11_inicio_dois.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t12_mapa.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t13_configuracao.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t1_inicio_um.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t2_inicio_cadastro.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t3_historia.xml" value="0.25" />
@@ -13,7 +14,8 @@
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t5_finaliza_tutorial.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t6_base.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t7_enfermaria.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t9_arsenal.xml" value="0.22" />
+        <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t8_tratamento.xml" value="0.25" />
+        <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/activity_t9_arsenal.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/nayar/TheEsoterroristGame/app/src/main/res/layout/arma_lista.xml" value="0.20416666666666666" />
       </map>
     </option>

@@ -31,6 +31,18 @@ public class T2_InicioCadastro extends AppCompatActivity {
 
         // BANCO DE DADOS
         bd = openOrCreateDatabase( "theesoterroristbd", MODE_PRIVATE, null );
+        // CRIAÇÃO E INSERÇÃO DOS DADOS DO USUARIO NO BD E EXECUÇÃO
+
+
+        String cmd;
+
+        // LIMPA A TABELA PARA SEMPRE HAVER UM SÓ USUARIO - COMO FAZER
+        cmd = "DROP TABLE usuario";
+        bd.execSQL( cmd );
+
+        cmd = "CREATE TABLE IF NOT EXISTS usuario ";
+        cmd = cmd + "( id INTEGER PRIMARY KEY AUTOINCREMENT, nick VARCHAR, senha VARCHAR, dinheiro INTEGER)";
+        bd.execSQL( cmd );
 
     }
 
@@ -42,6 +54,7 @@ public class T2_InicioCadastro extends AppCompatActivity {
         public void onClick(View view) {
 
             String nick, senha;
+
             nick = txtNick.getText().toString();
             senha = txtSenha.getText().toString();
 
@@ -51,6 +64,14 @@ public class T2_InicioCadastro extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Por favor, preencha todos os campos!", Toast.LENGTH_LONG).show();
             }
             else{
+                String cmd = "INSERT INTO usuario (nick, senha, dinheiro) VALUES ('";
+                cmd = cmd + nick;
+                cmd = cmd + "', '";
+                cmd = cmd + senha;
+                cmd = cmd + "', '";
+                cmd = cmd + 10000;
+                cmd = cmd + "')";
+                bd.execSQL( cmd );
                 startActivity(i);
             }
 

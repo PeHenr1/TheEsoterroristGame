@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheEsoterroristGame">
         <activity
+            android:name=".T13_Configuracao"
+            android:exported="true" />
+        <activity
             android:name=".T12_Mapa"
             android:exported="true" />
         <activity
@@ -24,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".T4_Tutorial"
+            android:exported="true" />
         <activity
             android:name=".T10_Agentes"
             android:exported="true" />
@@ -41,9 +47,6 @@
             android:exported="true" />
         <activity
             android:name=".T5_FinalizaTutorial"
-            android:exported="true" />
-        <activity
-            android:name=".T4_Tutorial"
             android:exported="true" />
         <activity
             android:name=".T3_Historia"

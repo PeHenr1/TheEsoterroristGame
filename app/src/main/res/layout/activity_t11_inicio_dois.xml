@@ -46,6 +46,19 @@
         app:layout_constraintTop_toBottomOf="@+id/btnContinuar" />
 
     <Button
+        android:id="@+id/btnConfigM"
+        android:layout_width="281dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif-monospace"
+        android:text="Configurações"
+        android:textSize="31sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNovoJogo" />
+
+    <Button
         android:id="@+id/btnContinuar"
         android:layout_width="281dp"
         android:layout_height="75dp"
@@ -57,18 +70,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <Button
-        android:id="@+id/btnConfig"
-        android:layout_width="281dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="serif-monospace"
-        android:text="Configurações"
-        android:textSize="31sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNovoJogo" />
 
 </android.support.constraint.ConstraintLayout>
